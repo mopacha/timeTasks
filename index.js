@@ -26,9 +26,9 @@ var bookCar = {
 }
 
 //内部
-var test1 = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d1af7337-d0b7-46db-abeb-cbd7acbf8db2"
+var test1 = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=425f9fea-7e99-4c52-b172-1bda7f62c09c"
 //大群
-var test2 = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=8ea533b5-0991-4daa-b0e0-a9e4081cdf69"
+var test2 = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=87d95ac8-497a-4152-b3c0-689ce5108267"
 
 function requestfun(contnet, webhookUrl) {
     // url 为企业机器人的webhook
