@@ -1,10 +1,18 @@
 const schedule = require("node-schedule");
 const request = require('request');
 
+var formatDateTime = function (date) {  
+    var h = date.getHours();  
+    h=h < 10 ? ('0' + h) : h;  
+    var minute = date.getMinutes();  
+    minute = minute < 10 ? ('0' + minute) : minute;  
+    return h+':'+minute+':'+'00';  
+};  
+
 var bookFoot = {
     "msgtype": "text",
     "text": {
-        "content": "【15:30:00】朋友们，别忘了预订晚餐哦!",
+        "content": "别忘了预订晚餐哦!",
         "mentioned_list": ["@all"]
     }
 }
@@ -12,7 +20,7 @@ var bookFoot = {
 var footCome = {
     "msgtype": "text",
     "text": {
-        "content": "【18:00:00】朋友们，晚餐到了，开始干饭喽!",
+        "content": "晚餐到啦，干饭啦！",
         "mentioned_list": ["@all"]
     }
 }
@@ -20,7 +28,7 @@ var footCome = {
 var bookCar = {
     "msgtype": "text",
     "text": {
-        "content": "【20:50:00】朋友们，加班辛苦了，可以打车啦！",
+        "content": "【" +formatDateTime(new Date)+"】"+"加班辛苦了，可以打车啦！",
         "mentioned_list": ["@all"]
     }
 }
@@ -30,12 +38,11 @@ var test1 = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d1af7337-d0b7-
 //大群
 var test2 = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=8ea533b5-0991-4daa-b0e0-a9e4081cdf69"
 
-function requestfun(contnet, webhookUrl) {
-    // url 为企业机器人的webhook
+var is2yue8 = new Date().getMonth() + "-" +new Date().getDate() === '1-8'
 
-    // test1: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d1af7337-d0b7-46db-abeb-cbd7acbf8db2
-    // test2: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=8ea533b5-0991-4daa-b0e0-a9e4081cdf69
-    request({
+function requestfun(contnet, webhookUrl) {
+// url 为企业机器人的webhook
+   request({
         url: webhookUrl,
         method: "POST",
         headers: {
@@ -47,26 +54,34 @@ function requestfun(contnet, webhookUrl) {
     });
 }
 
+
+var diancan = is2yue8 ? '00 30 14 * * 1-6' :'00 30 15 * * 1-6'
+var fanlai =  is2yue8 ? '00 00 17 * * 1-6' :'00 00 18 * * 1-6'
+
 const scheduleCronstyle = () => {
-    //每分钟的第30秒定时执行一次:
-    schedule.scheduleJob('00 30 15 * * 1-6', () => {
+    //每分钟的第30秒定时执行一次
+    schedule.scheduleJob(diancan, () => {
         console.log('点餐:' + new Date());
         requestfun(bookFoot, test1);
         requestfun(bookFoot, test2);
     });
 
-    schedule.scheduleJob('00 00 18 * * 1-6', () => {
+    schedule.scheduleJob(fanlai, () => {
         console.log('饭来了:' + new Date());
         requestfun(footCome, test1);
         requestfun(footCome, test2);
     });
 
-    schedule.scheduleJob('00 50 20 * * 1-6', () => {
-        console.log('打车了:' + new Date());
+    // 周一到周五 20：50可以打车
+    schedule.scheduleJob('00 50 20 * * 1-5', () => {
+        console.log('工作日打车:' + new Date());
         requestfun(bookCar, test1);
     });
-
-    
+    // 周六21:00才能打车
+    schedule.scheduleJob('00 00 21 * * 6', () => {
+        console.log('周六打车:' + new Date());
+        requestfun(bookCar, test1);
+    });
 }
 
 scheduleCronstyle();
