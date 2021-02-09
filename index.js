@@ -28,7 +28,7 @@ var footCome = {
 var bookCar = {
     "msgtype": "text",
     "text": {
-        "content": "【" +formatDateTime(new Date)+"】"+"加班辛苦了，可以打车啦！",
+        "content": "加班辛苦了，可以打车啦！",
         "mentioned_list": ["@all"]
     }
 }
@@ -55,8 +55,8 @@ function requestfun(contnet, webhookUrl) {
 }
 
 
-var diancan = is2yue8 ? '00 30 14 * * 1-6' :'00 30 15 * * 1-6'
-var fanlai =  is2yue8 ? '00 00 17 * * 1-6' :'00 00 18 * * 1-6'
+var diancan = '00 30 15 * * 1-6'
+var fanlai =  '00 00 18 * * 1-6'
 
 const scheduleCronstyle = () => {
     //每分钟的第30秒定时执行一次
