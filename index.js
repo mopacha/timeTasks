@@ -1,13 +1,17 @@
 const schedule = require("node-schedule");
 const request = require('request');
 
-var formatDateTime = function (date) {  
-    var h = date.getHours();  
-    h=h < 10 ? ('0' + h) : h;  
-    var minute = date.getMinutes();  
-    minute = minute < 10 ? ('0' + minute) : minute;  
-    return h+':'+minute+':'+'00';  
-};  
+const imgList = [
+    'https://cdn.nlark.com/yuque/0/2021/jpeg/264072/1618491379597-720efe9c-1116-4316-aeae-a77417964a66.jpeg'
+]
+
+var formatDateTime = function (date) {
+    var h = date.getHours();
+    h = h < 10 ? ('0' + h) : h;
+    var minute = date.getMinutes();
+    minute = minute < 10 ? ('0' + minute) : minute;
+    return h + ':' + minute + ':' + '00';
+};
 
 var bookFoot = {
     "msgtype": "text",
@@ -16,6 +20,30 @@ var bookFoot = {
         "mentioned_list": ["@all"]
     }
 }
+
+var superBookFoot = {
+    msgtype: "markdown",
+    markdown: {
+        content: "<font color=\"warning\">别忘了预订晚餐哦!</font>\n" +
+        "<img src='http://static.runoob.com/images/runoob-logo.png' width='50%'>" + 
+        "@所有人"
+        // mentioned_list: ["@all"]
+    }
+}
+
+var proBookFoot = {
+    msgtype: "news",
+    news: {
+        articles: [
+            {
+                title: "别忘了预订晚餐哦!",
+                url: "weixin://dl",
+                picurl: "./imgs/0.jpg"
+            }
+        ]
+    }
+}
+
 
 var footCome = {
     "msgtype": "text",
@@ -34,15 +62,15 @@ var bookCar = {
 }
 
 //内部
-var test1 = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=425f9fea-7e99-4c52-b172-1bda7f62c09c"
+var test1 = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d1af7337-d0b7-46db-abeb-cbd7acbf8db2"
 //大群
-var test2 = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=87d95ac8-497a-4152-b3c0-689ce5108267"
+var test2 = ""
 
-var is2yue8 = new Date().getMonth() + "-" +new Date().getDate() === '1-8'
+var is2yue8 = new Date().getMonth() + "-" + new Date().getDate() === '1-8'
 
 function requestfun(contnet, webhookUrl) {
-// url 为企业机器人的webhook
-   request({
+    // url 为企业机器人的webhook
+    request({
         url: webhookUrl,
         method: "POST",
         headers: {
@@ -55,15 +83,15 @@ function requestfun(contnet, webhookUrl) {
 }
 
 
-var diancan = '00 30 15 * * 1-6'
-var fanlai =  '00 00 18 * * 1-6'
+var diancan = '00 51 20 * * 1-6'
+var fanlai = '00 00 18 * * 1-6'
 
 const scheduleCronstyle = () => {
     //每分钟的第30秒定时执行一次
     schedule.scheduleJob(diancan, () => {
         console.log('点餐:' + new Date());
-        requestfun(bookFoot, test1);
-        requestfun(bookFoot, test2);
+        requestfun(proBookFoot, test1);
+        //requestfun(bookFoot, test2);
     });
 
     schedule.scheduleJob(fanlai, () => {
