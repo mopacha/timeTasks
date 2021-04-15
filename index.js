@@ -73,11 +73,11 @@ const scheduleCronstyle = () => {
         requestfun(atAll, prod);
     });
 
-    schedule.scheduleJob(fanlai, () => {
+   /* schedule.scheduleJob(fanlai, () => {
         //console.log('饭来了:' + new Date());
         requestfun(footCome, prod);
         requestfun(atAll, prod);
-    });
+    });*/
 }
 
 scheduleCronstyle();
