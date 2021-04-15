@@ -2,7 +2,7 @@ const schedule = require("node-schedule");
 const request = require('request');
 
 const getImg = function () {
-    const id = parseInt(Math.random() * 9);
+    const id = parseInt(Math.random() * 10);
     return 'https://github.com/mopacha/timeTasks/blob/master/imgs/' + `${id}` + '.jpg?raw=true'
 }
 
