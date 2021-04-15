@@ -46,8 +46,7 @@ var footCome = {
 //内部
 var test1 = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d1af7337-d0b7-46db-abeb-cbd7acbf8db2"
 //大群
-var prod = ""
-
+var prod = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=87d95ac8-497a-4152-b3c0-689ce5108268"
 
 function requestfun(contnet, webhookUrl) {
     // url 为企业机器人的webhook
@@ -64,20 +63,20 @@ function requestfun(contnet, webhookUrl) {
 }
 
 
-var diancan = '00 17 21 * * 1-6'
+var diancan = '00 30 15 * * 1-6'
 var fanlai = '00 00 18 * * 1-6'
 
 const scheduleCronstyle = () => {
     schedule.scheduleJob(diancan, () => {
        // console.log('点餐:' + new Date());
-        requestfun(bookFoot, test1);
-        requestfun(atAll, test1);
+        requestfun(bookFoot, prod);
+        requestfun(atAll, prod);
     });
 
     schedule.scheduleJob(fanlai, () => {
         //console.log('饭来了:' + new Date());
-        requestfun(footCome, test1);
-        requestfun(atAll, test1);
+        requestfun(footCome, prod);
+        requestfun(atAll, prod);
     });
 }
 
