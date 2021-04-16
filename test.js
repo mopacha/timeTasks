@@ -37,3 +37,25 @@ schedule.scheduleJob('00 00 21 * * 6', () => {
     console.log('周六打车:' + new Date());
     requestfun(bookCar, test1);
 });
+
+/* schedule.scheduleJob(fanlai, () => {
+     //console.log('饭来了:' + new Date());
+     requestfun(footCome, prod);
+     requestfun(atAll, prod);
+ });*/
+
+
+var fanlai = '00 00 18 * * 1-6'
+
+var footCome = {
+    msgtype: "news",
+    news: {
+        articles: [
+            {
+                title: "晚餐到啦，干饭啦！",
+                url: "weixin://dl",
+                picurl: getImg()
+            }
+        ]
+    }
+}
