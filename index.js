@@ -8,11 +8,15 @@ const imgList = [
     {
         url: 'https://wx3.sinaimg.cn/mw690/005Ozs6vgy1gplrwni3ewj30if0ajtnm.jpg',
         origin: 'https://wx4.sinaimg.cn/mw690/005Ozs6vgy1gplod76f2yj30b40gyaqb.jpg'
+    },
+    {
+        url: 'https://wx2.sinaimg.cn/mw690/005Ozs6vgy1gqeb3a2ky8j315n0u0b2b.jpg',
+        origin: 'https://wx3.sinaimg.cn/mw690/005Ozs6vgy1gqeb2y2e21j30u01407wl.jpg'
     }
 ]
 
 const getImg = function () {
-    const index = parseInt(Math.random() * 2);
+    const index = parseInt(Math.random() * 3);
     const {
         url,
         origin
@@ -81,11 +85,11 @@ const scheduleCronstyle = () => {
         // console.log('点餐:' + new Date());
         requestfun(bookFoot(), prod);
         requestfun(atAll, prod);
-     });
+    });
     schedule.scheduleJob(diancan2, () => {
-       // console.log('点餐:' + new Date());
-       requestfun(bookFoot(), prod);
-       requestfun(atAll, prod);
+        // console.log('点餐:' + new Date());
+        requestfun(bookFoot(), prod);
+        requestfun(atAll, prod);
     });
 }
 
