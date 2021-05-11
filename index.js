@@ -72,10 +72,17 @@ function requestfun(contnet, webhookUrl) {
 }
 
 
-const diancan = '00 30 15 * * 1-6';
+const diancan1 = '00 00 11 * * 1-6';
+
+const diancan2 = '00 30 15 * * 1-6';
 
 const scheduleCronstyle = () => {
-    schedule.scheduleJob(diancan, () => {
+    schedule.scheduleJob(diancan1, () => {
+        // console.log('点餐:' + new Date());
+        requestfun(bookFoot(), prod);
+        requestfun(atAll, prod);
+     });
+    schedule.scheduleJob(diancan2, () => {
        // console.log('点餐:' + new Date());
        requestfun(bookFoot(), prod);
        requestfun(atAll, prod);
