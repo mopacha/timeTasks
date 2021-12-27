@@ -2,16 +2,16 @@ const schedule = require("node-schedule");
 const request = require('request');
 const imgList = [
     {
-        url: 'https://wx4.sinaimg.cn/mw690/005Ozs6vgy1gxsmb1pt4sj30n00n0mxy.jpg',
-        origin: 'https://wx4.sinaimg.cn/mw690/005Ozs6vgy1gxsmb1pt4sj30n00n0mxy.jpg'
+        url: 'https://sensorsdata.cn/assets/figure/webhook/1s.jpeg',
+        origin: 'https://sensorsdata.cn/assets/figure/webhook/1b.jpeg'
     },
     {
-        url: 'https://wx3.sinaimg.cn/mw690/005Ozs6vgy1gplrwni3ewj30if0ajtnm.jpg',
-        origin: 'https://wx4.sinaimg.cn/mw690/005Ozs6vgy1gplod76f2yj30b40gyaqb.jpg'
+        url: 'https://sensorsdata.cn/assets/figure/webhook/2s.jpeg',
+        origin: 'https://sensorsdata.cn/assets/figure/webhook/2b.jpeg'
     },
     {
-        url: 'https://wx2.sinaimg.cn/mw690/005Ozs6vgy1gqeb3a2ky8j315n0u0b2b.jpg',
-        origin: 'https://wx3.sinaimg.cn/mw690/005Ozs6vgy1gqeb2y2e21j30u01407wl.jpg'
+        url: 'https://sensorsdata.cn/assets/figure/webhook/3s.jpeg',
+        origin: 'https://sensorsdata.cn/assets/figure/webhook/3b.jpg'
     }
 ]
 
