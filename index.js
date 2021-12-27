@@ -2,8 +2,8 @@ const schedule = require("node-schedule");
 const request = require('request');
 const imgList = [
     {
-        url: 'https://wx2.sinaimg.cn/mw690/005Ozs6vgy1gplrl1u1fej30u00l0tce.jpg',
-        origin: 'https://wx4.sinaimg.cn/mw690/005Ozs6vgy1gplodbqtalj30u0140x23.jpg'
+        url: 'https://wx4.sinaimg.cn/mw690/005Ozs6vgy1gxsmb1pt4sj30n00n0mxy.jpg',
+        origin: 'https://wx4.sinaimg.cn/mw690/005Ozs6vgy1gxsmb1pt4sj30n00n0mxy.jpg'
     },
     {
         url: 'https://wx3.sinaimg.cn/mw690/005Ozs6vgy1gplrwni3ewj30if0ajtnm.jpg',
@@ -76,9 +76,9 @@ function requestfun(contnet, webhookUrl) {
 }
 
 
-const diancan1 = '00 00 11 * * 1-6';
+const diancan1 = '00 00 11 * * 1-5';
 
-const diancan2 = '00 30 15 * * 1-6';
+const diancan2 = '00 30 15 * * 1-5';
 
 const scheduleCronstyle = () => {
     schedule.scheduleJob(diancan1, () => {
