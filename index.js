@@ -12,6 +12,22 @@ const imgList = [
     {
         url: 'https://sensorsdata.cn/assets/figure/webhook/3s.jpeg',
         origin: 'https://sensorsdata.cn/assets/figure/webhook/3b.jpg'
+    },
+    {
+        url: 'https://sensorsdata.cn/assets/figure/webhook/4s.jpg',
+        origin: 'https://sensorsdata.cn/assets/figure/webhook/4b.jpg'
+    },
+    {
+        url: 'https://sensorsdata.cn/assets/figure/webhook/5s.jpg',
+        origin: 'https://sensorsdata.cn/assets/figure/webhook/5b.jpg'
+    },
+    {
+        url: 'https://sensorsdata.cn/assets/figure/webhook/6.jpg',
+        origin: 'https://sensorsdata.cn/assets/figure/webhook/6.jpg'
+    },
+    {
+        url: 'https://sensorsdata.cn/assets/figure/webhook/7.jpg',
+        origin: 'https://sensorsdata.cn/assets/figure/webhook/7.jpg'
     }
 ]
 
