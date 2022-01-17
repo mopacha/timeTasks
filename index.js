@@ -32,7 +32,7 @@ const imgList = [
 ]
 
 const getImg = function () {
-    const index = parseInt(Math.random() * 3);
+    const index = parseInt(Math.random() * 7);
     const {
         url,
         origin
